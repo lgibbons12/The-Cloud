@@ -1,9 +1,12 @@
 //get the canvas from DOM
 var canvas = document.querySelector("canvas");
 
+<<<<<<< HEAD
 //state of website
 var webState = 2;
 
+=======
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
 //make the canvas take up the whole screen
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -26,7 +29,10 @@ class Cloud {
         this.y = y;
         this.dx = dx;
         this.size = size;
+<<<<<<< HEAD
         this.offScreen = false;
+=======
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
 
 
         this.draw = function() {
@@ -37,14 +43,20 @@ class Cloud {
             
         }
         this.update = function () {
+<<<<<<< HEAD
             if (this.x < 0 || this.x > innerWidth) {
                 this.offScreen = true;
+=======
+            if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+                this.dx *= -1;
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
             }
             
             this.x += this.dx;
         }
     }
 }
+<<<<<<< HEAD
 var cloudArray = [ 
     new Cloud(innerWidth/1.9, innerHeight/5 + 2, 2, 40),
     new Cloud(innerWidth/2.1, innerHeight/5 + 2, -2, 40)
@@ -70,10 +82,24 @@ window.addEventListener("click", function(event) {
 
 function animate() {
     //normal animation resets
+=======
+var hello = new Cloud(innerWidth/2, innerHeight/5, -2, 40);
+
+var fontBase = 1000,                   
+    fontSize = 70;                    
+
+function getFont() {
+    var ratio = fontSize / fontBase;   
+    var size = canvas.width * ratio;  
+    return (size|0) + 'px sans-serif'; 
+}
+function animate() {
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
     c.fillStyle = "rgb(137, 196, 244)";
     c.fillRect(0, 0, innerWidth, innerHeight); 
+<<<<<<< HEAD
     //opening animation
     if (webState === 0) {
         c.font = "70px Arial";
@@ -139,10 +165,21 @@ function animate() {
     }
 
     
+=======
+    c.font = getFont()
+    c.fillStyle = "black"
+    c.fillText("The Cloud", innerWidth/2 - (innerwidth), innerHeight/2)
+    hello.draw();
+    hello.update();
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
 
     
     
     
 }
 
+<<<<<<< HEAD
 animate();
+=======
+animate();
+>>>>>>> 941b4267ee07916b2aa15c7685ab5450dc9daa18
