@@ -251,19 +251,19 @@ function animate() {
         c.fillStyle = "yellow";
         c.strokeStyle = "yellow";
         c.fillStyle = "black";
-        c.font = "15px Garamond";
+        c.font = "15px Calibri";
         if (innerWidth < 1000) {
-            c.font = "8px Garamond";
+            c.font = "8px Calibri";
         }
         c.fillText("Deployment Methods", innerWidth/2 - (innerWidth/5.5), innerHeight/4.5);
         c.fillText("Services", innerWidth/2 + (innerWidth/10), innerHeight/4.5);
-        c.font = "30px Garamond";
+        c.font = "30px Calibri";
         if (innerWidth<1000) {
-            c.font = "15px Garamond";
+            c.font = "15px Calibri";
         }
-        c.fillText("How It Works", innerWidth/2 - (innerWidth/13), innerHeight/2 - (innerHeight/3));
+        c.fillText("How It Works", innerWidth/2 - (innerWidth/15), innerHeight/2 - (innerHeight/3));
         //c.rotate(-1);
-        c.font = "20px Garamond";
+        c.font = "20px Calibri";
         c.fillText("Major Use Cases", innerWidth/2 - (innerWidth/8), innerHeight/2 - (innerHeight/7.5));
         //c.rotate(1)
         
@@ -274,16 +274,24 @@ function animate() {
         }
         c.fillText("Security", innerWidth/2 + (innerWidth/11), innerHeight/2)
         
+
+
+
+
+
+
+        //Deployment Methods Logic
         if (mouse.x > innerWidth/2 - (innerWidth/5.5) && mouse.x < (innerWidth/2 - (innerWidth/5.5)) + innerWidth/10) {
             if (mouse.y > innerHeight/4.5 - (innerHeight/50) && mouse.y < (innerHeight/4.5 - (innerHeight/50)) + innerHeight/20 - (innerHeight/50)) {
                 c.fillStyle = "blue";
-                c.font = "15px Garamond";
+                c.font = "15px Calibri";
                 if (innerWidth < 1000) {
-                    c.font = "8px Garamond";
+                    c.font = "8px Calibri";
                 }
                 c.fillText("Deployment Methods", innerWidth/2 - (innerWidth/5.5), innerHeight/4.5);
                 if (mouse.click) {
-                    
+                    lineArray = [];
+                    rectArray = [];
                     let line = {
                         orgx: innerWidth/2 - (innerWidth/5.5),
                         orgy:  innerHeight/4.5,
@@ -312,6 +320,168 @@ function animate() {
                 }
             }
         }
+
+        
+
+        //Major Use Cases
+        if (mouse.x > innerWidth/2 - (innerWidth/7) && mouse.x < innerWidth/2 - (innerWidth/7) + innerWidth/11) {
+            if (mouse.y > innerHeight/3 && mouse.y < innerHeight/3 + innerHeight/25) {
+                c.fillStyle = "blue";
+                c.font = "20px Calibri";
+                c.fillText("Major Use Cases", innerWidth/2 - (innerWidth/8), innerHeight/2 - (innerHeight/7.5));
+                if (mouse.click) {
+                    lineArray = [];
+                    rectArray = [];
+                    let line = {
+                        orgx: innerWidth/2 - (innerWidth/9),
+                        orgy:  innerHeight/3 + innerHeight/20,
+                        x:  innerWidth/5 + innerWidth/10,
+                        y:  innerHeight/2 + innerHeight/10
+                    }
+                    
+                    lineArray.push(line);
+                    
+
+                    let rect = {
+                        x: innerWidth/5,
+                        y: innerHeight/2 + innerHeight/10,
+                        w: innerWidth/4,
+                        h: innerHeight/5
+                    }
+                    rectArray.push(rect);
+                    mouse.click = false;
+                    
+                    textArray = [
+                        "Major Use Cases:",
+                        "Big Data",
+                        "Internet of Things",
+                        "AI"
+                    ]
+                }
+            }
+        }
+
+        //Services
+        if (mouse.x > innerWidth/2 + innerWidth/11 && mouse.x < innerWidth/2 + innerWidth/11 + innerWidth/23) {
+            if (mouse.y > innerHeight/5 && mouse.y < innerHeight/5 + innerHeight/20) {
+                c.fillStyle = "blue";
+                c.font = "15px Calibri";
+                if (innerWidth < 1000) {
+                    c.font = "8px Calibri";
+                }
+                c.fillText("Services", innerWidth/2 + (innerWidth/10), innerHeight/4.5);
+                if (mouse.click) {
+                    lineArray = [];
+                    rectArray = [];
+                    let line = {
+                        orgx: innerWidth/2 + innerWidth/11,
+                        orgy:  innerHeight/5,
+                        x:  innerWidth/1.4,
+                        y:  innerHeight/10 + innerHeight/10
+                    }
+                    
+                    lineArray.push(line);
+                    
+
+                    let rect = {
+                        x: innerWidth/1.4,
+                        y: innerHeight/10,
+                        w: innerWidth/4,
+                        h: innerHeight/5
+                    }
+                    rectArray.push(rect);
+                    mouse.click = false;
+                    
+                    textArray = [
+                        "Information as a Service",
+                        "Platform as a Service",
+                        "Serverless",
+                        "Software as a Service"
+                    ]
+                }
+            }
+        }
+
+        //Security
+        if (mouse.x > innerWidth/2 + innerWidth/13 && mouse.x < innerWidth/2 + innerWidth/13 + innerWidth/15) {
+            if (mouse.y > innerHeight/2 - innerHeight/50 && mouse.y < innerHeight/2 - innerHeight/50 + innerHeight/25) {
+                c.fillStyle = "red";
+                c.font = "20px Calibri";
+                c.fillText("Security", innerWidth/2 + (innerWidth/11), innerHeight/2)
+                if (mouse.click) {
+                    lineArray = [];
+                    rectArray = [];
+                    let line = {
+                        orgx: innerWidth/2 + innerWidth/13 + innerWidth/20,
+                        orgy:  innerHeight/2 - innerHeight/50 + innerHeight/50,
+                        x:  innerWidth/1.4,
+                        y:  innerHeight/1.5
+                    }
+                    
+                    lineArray.push(line);
+                    
+
+                    let rect = {
+                        x: innerWidth/1.4,
+                        y: innerHeight/1.5,
+                        w: innerWidth/4,
+                        h: innerHeight/5
+                    }
+                    rectArray.push(rect);
+                    mouse.click = false;
+                    
+                    textArray = [
+                        "Security:",
+                        "Shared Responsibility",
+                        "Data Encryption",
+                        "Disaster Recovery"
+                    ]
+                }
+            }
+        }
+
+        //How It Works
+        if (mouse.x > innerWidth/2 - innerWidth/10 && mouse.x < innerWidth/2 - innerWidth/10 + innerWidth/7) {
+            if (mouse.y > innerHeight/7.5 && mouse.y < innerHeight/7.5 + innerHeight/25) {
+                c.fillStyle = "blue";
+                c.font = "30px Calibri";
+                if (innerWidth<1000) {
+                    c.font = "15px Calibri";
+                }
+                c.fillText("How It Works", innerWidth/2 - (innerWidth/15), innerHeight/2 - (innerHeight/3));
+                if (mouse.click) {
+                    lineArray = [];
+                    rectArray = [];
+                    let line = {
+                        orgx: innerWidth/2 - innerWidth/10 + innerWidth/14,
+                        orgy:  innerHeight/7.5 + innerHeight/25,
+                        x:  innerWidth/2 - innerWidth/10 + innerWidth/14,
+                        y:  innerHeight/1.5
+                    }
+                    
+                    lineArray.push(line);
+                    
+
+                    let rect = {
+                        x: innerWidth/2 - innerWidth/7,
+                        y: innerHeight/1.5,
+                        w: innerWidth/4,
+                        h: innerHeight/5
+                    }
+                    rectArray.push(rect);
+                    mouse.click = false;
+                    
+                    textArray = [
+                        "How It Works:",
+                        "Virtualization",
+                        "Server Racks with Fabric Controller",
+                        "Orchestrator"
+                    ]
+                }
+            }
+        }
+
+        //Drawing Box and Everything
         if (lineArray.length > 0) {
             
             for (i = 0; i < lineArray.length; i++) {    
@@ -322,13 +492,13 @@ function animate() {
             c.fillStyle = "gray";
             c.fillRect(rectArray[i].x, rectArray[i].y, rectArray[i].w, rectArray[i].h);
             coolx = rectArray[i].x;
-            cooly = rectArray[i].y
+            cooly = rectArray[i].y + 30;
             coolh = rectArray[i].h;
             if (textArray.length > 0) {
                 c.fillStyle = "white";
-                c.font = "30px Garamond";
+                c.font = "30px Calibri";
                 for (i = 0; i < textArray.length; i++){
-                    c.fillText(textArray[0], coolx, cooly + (innerHeight / 60));
+                    c.fillText(textArray[0], coolx, cooly + (innerHeight / 60) - 10);
                     c.fillText(textArray[1], coolx, cooly + (coolh / textArray.length));
                     c.fillText(textArray[2], coolx, cooly + 2 * (coolh / textArray.length));
                     c.fillText(textArray[3], coolx, cooly + 3 * (coolh / textArray.length));
