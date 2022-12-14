@@ -2,7 +2,7 @@
 var canvas = document.querySelector("canvas");
 
 //state of website
-var webState = 0;
+var webState = 2;
 let lineArray = [];
 let rectArray = [];
 let textArray = [];
@@ -10,12 +10,40 @@ let textArray = [];
 let coolx = 0;
 let cooly= 0;
 let coolh = 0;
+
+let imgShowcount = 0;
+
+
+
 //make the canvas take up the whole screen
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 //a bunch of methods stored in the variable
 var c = canvas.getContext('2d');
+
+let imageShowing = true;
+
+let counter = 0;
+//imageProcess();
+function imageProcess() {
+    var imageEL = document.getElementById("services");
+    if (imageShowing) {
+        imageEL.style.width = innerWidth/4 + "px";
+        imageEL.style.height = innerHeight/4 + "px";
+        if (counter < 1) {
+            imageEL.style.top = innerHeight/3 + "px";
+            imageEL.style.left = innerWidth/1.2 - innerWidth/8.5 + "px";
+            counter = 1;
+        }
+        
+      } else {
+        
+        imageEL.style.width = '0px';
+        imageEL.style.height = "0px";
+    }
+    
+}
 
 
 drawClouds = function(x, y, size) {
@@ -66,6 +94,7 @@ var mouse = {
 window.addEventListener("mousemove", function (event) {
     mouse.x = event.x;
     mouse.y = event.y;
+    
 })
 
 
@@ -159,6 +188,14 @@ window.addEventListener("click", function(event) {
     mouse.click = true;
     mouse.x = event.x;
     mouse.y = event.y;
+    if (imgShowcount === "hello") {
+        imageShowing = !imageShowing;
+        imgShowcount = 5;
+        imageProcess();
+        }
+    if (imgShowcount === 5) {
+        imageShowing = !imageShowing;
+    }
 })
 rainyArray = [];
 for (i = 0; i <5; i++) {
@@ -290,6 +327,7 @@ function animate() {
                 }
                 c.fillText("Deployment Methods", innerWidth/2 - (innerWidth/5.5), innerHeight/4.5);
                 if (mouse.click) {
+                    
                     lineArray = [];
                     rectArray = [];
                     let line = {
@@ -398,6 +436,11 @@ function animate() {
                         "Serverless",
                         "Software as a Service"
                     ]
+                    
+                    imageProcess();
+                    imgShowcount = "hello";
+                    
+                    
                 }
             }
         }
@@ -506,12 +549,14 @@ function animate() {
             }
 
             }
+        
         }
+}
         
         
         
 
-    }
+    
 
     
 
