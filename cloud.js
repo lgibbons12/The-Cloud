@@ -2,7 +2,7 @@
 var canvas = document.querySelector("canvas");
 
 //state of website
-var webState = 2;
+var webState = 0;
 let lineArray = [];
 let rectArray = [];
 let textArray = [];
